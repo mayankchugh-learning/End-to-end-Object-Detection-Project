@@ -1,0 +1,23 @@
+Step 1: 
+##  
+```bash
+- Create and execute template.py to create folder structure with empty files
+```
+
+```bash
+- list all dependencies libraries in requirements file (at the end -e .--> will execute setup.pyt file)
+- write code in setup.py file for install all dependencies (after execution of setup.py file - create egg folder will be created))
+- execute pip install -r requirements.txt to install all dependencies
+```
+
+```bash
+conda create -n signlang python=3.9 -y
+```
+
+```bash
+conda activate signlang
+```
+
+```bash
+pip install -r requirements.txt
+```
