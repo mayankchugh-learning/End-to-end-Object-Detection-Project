@@ -9,5 +9,6 @@ setup(
     long_description="Sign language Detection Project",
     long_description_content_type="text/markdown",
     url="https://github.com/mayankchugh-learning/End-to-end-Object-Detection-Project",
-    packages=find_packages()
+    packages=find_packages(),
+    install_requires = []
 )

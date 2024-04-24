@@ -163,3 +163,4 @@ CollectedImages*
 CollectedImages/*
 .DS_Store
 data
+artifacts/*
