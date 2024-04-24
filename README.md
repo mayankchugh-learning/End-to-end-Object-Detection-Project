@@ -31,6 +31,8 @@ The ASL End-to-End Object Detection Project is a comprehensive computer vision p
 * 📊 Model Evaluation: The trained model is evaluated using metrics such as precision, recall, and mean average precision (mAP) to assess its performance in accurately detecting ASL gestures. The model's ability to handle different hand orientations, scales, and variations in lighting conditions is also evaluated.
 
 * 📹 Real-time Inference: Once the model is trained and evaluated, it is deployed for real-time inference on video or camera input. The system processes each frame, detects ASL gestures, and overlays bounding boxes or annotations indicating the recognized gestures.
+[annotation tools-roboflow](https://roboflow.com/)
+[annotation tools-labelImg](https://github.com/HumanSignal/labelImg)
 
 * 💻 User Interface: The project may include a user-friendly interface that allows users to interact with the system, either through a webcam or by uploading pre-recorded videos. The interface provides visual feedback on the detected ASL gestures and may include additional features like gesture translation or sign language interpretation.
 
