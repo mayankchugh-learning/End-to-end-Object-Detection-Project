@@ -162,7 +162,7 @@ objdetectprj
 CollectedImages*
 CollectedImages/*
 .DS_Store
-data
+datatest
 artifacts/*
 test
 Sign_language_data*
