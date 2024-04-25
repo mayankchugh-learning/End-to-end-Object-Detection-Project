@@ -66,11 +66,21 @@ class TrainPipeline:
 
         except Exception as e:
             raise SignException(e, sys) from e
+			
+			
     def run_pipeline(self) -> None:
         try:
             data_ingestion_artifact = self.start_data_ingestion()
+            data_validation_artifact = self.start_data_validation(
+                data_ingestion_artifact=data_ingestion_artifact
+            )
 
-
-
+            if data_validation_artifact.validation_status == True:
+                logging.info(
+                    "Exited the data_validation method after Success of TrainPipeline class"
+                )
+            else:
+                raise Exception("Your data is not in correct format")
+            
         except Exception as e:
             raise SignException(e, sys)
