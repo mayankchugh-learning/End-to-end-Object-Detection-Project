@@ -9,6 +9,32 @@
 - pipeline
 - app.py
 
+
+
+
+## Project Configuration
+
+```bash
+#install aws cli from the following link
+
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+```
+
+```bash
+#Configure aws crediential (secret key & access key)
+```
+```bash
+aws configure
+```
+
+
+```bash
+#Create a s3 bucket for model pusher. name is mentioned in the consrtant
+
+```
+
+
+
 ## How to run:
 
 ```bash

@@ -68,7 +68,16 @@ def predictRoute():
 @cross_origin()
 def predictLive():
     try:
-        os.system("cd yolov5/ && python detect.py --weights my_model.pt --img 416 --conf 0.5 --source 0")
+        
+
+        os_string = detect_os()
+        print("Operating System OS_string ß: ",os_string)
+
+        if os_string == "Linux":        
+            os.system("cd yolov5/ && python3 detect.py --weights my_model.pt --img 416 --conf 0.5 --source 0")
+        else:
+            os.system("cd yolov5/ && python detect.py --weights my_model.pt --img 416 --conf 0.5 --source 0")
+
         os.system("rm -rf yolov5/runs")
         return "Camera starting!!" 
 
@@ -76,8 +85,6 @@ def predictLive():
         print(val)
         return Response("Value not found inside  json data")
     
-
-
 
 if __name__ == "__main__":
     clApp = ClientApp()
