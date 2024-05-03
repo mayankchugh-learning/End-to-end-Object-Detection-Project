@@ -1,7 +1,7 @@
 import sys, os
 from signLanguage.pipeline.training_pipeline import TrainPipeline
 from signLanguage.exception import SignException
-from signLanguage.utils.main_utils import decodeImage, encodeImageIntoBase64
+from signLanguage.utils.main_utils import decodeImage, encodeImageIntoBase64, detect_os
 from flask import Flask, request, jsonify, render_template,Response
 from flask_cors import CORS, cross_origin
 
@@ -38,7 +38,13 @@ def predictRoute():
         image = request.json['image']
         decodeImage(image, clApp.filename)
 
-        os.system("cd yolov5/ && python detect.py --weights my_model.pt --img 416 --conf 0.5 --source ../data/inputImage.jpg")
+        os_string = detect_os()
+        print("Operating System OS_string ß: ",os_string)
+
+        if os_string == "Linux":        
+            os.system("cd yolov5/ && python3 detect.py --weights my_model.pt --img 416 --conf 0.5 --source ../data/inputImage.jpg")
+        else:
+            os.system("cd yolov5/ && python detect.py --weights my_model.pt --img 416 --conf 0.5 --source ../data/inputImage.jpg")
 
         opencodedbase64 = encodeImageIntoBase64("yolov5/runs/detect/exp/inputImage.jpg")
         result = {"image": opencodedbase64.decode('utf-8')}
