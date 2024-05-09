@@ -38,6 +38,8 @@ docker ps -a
 docker exec -it <container_id> /bin/bash
 ```
 
+docker exec -it 8f1a99a79b3d /bin/bash
+
 ## update container
 ```bash
 apt-get update -y
@@ -45,12 +47,36 @@ apt-get update -y
 ```bash
 apt-get upgrade -y
 ```
-## install aws cli 
-```bash
-apt install awscli -y   
-```
-# choose you region and country when prompt
 
+```bash
+apt-get install curl -y
+apt-get install unzip -y
+```
+
+```bash
+apt-get install installer -y
+```
+
+## install aws cli 
+
+```bash
+curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
+unzip -u awscliv2.zip
+./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
+which aws
+ls -l /usr/local/bin/aws
+aws --version
+```
+or
+```bash
+apt-get install awscli -y   
+```
+
+```bash
+aws --version
+```
+
+# choose you region and country when prompt
 ## configure aws configuration
 ```bash
 aws configure
@@ -62,10 +88,11 @@ AWS_ACCESS_KEY_ID=<your-access-key>
 AWS_SECRET_ACCESS_KEY=<your-secret-access-key>
 AWS_DEFAULT_REGION=us-east-1
 ```
-
 ## install python      
 ```bash
 apt-get install python3
+apt-get install python3.12-venv
+apt-get install python3-full -y
 ```
 
 ## install pip      
@@ -75,6 +102,7 @@ apt-get install pip -y
 
 ```bash
 apt-get install libgl1-mesa-glx -y
+apt-get install mesa-utils -y
 ```
 
 ## install git
@@ -89,7 +117,7 @@ apt-get install nano
 
 ## install vi
 ```bash
-apt-get install vi
+apt-get install vim
 ```
 
 ## install unzip
@@ -106,7 +134,12 @@ git clone https://github.com/mayankchugh-learning/End-to-end-Object-Detection-Pr
 ```bash
 cd End-to-end-Object-Detection-Project
 ```
-pip install gitpython
+```bash
+python3 -m venv .
+python3 -m venv path/to/venv
+source path/to/venv/bin/activate
+pip install -r requirements.txt
+```
 ## install all requirement
 ```bash
 pip install -r requirements.txt
@@ -119,8 +152,10 @@ aws --version
 
 ## exist from docker and then go into docker conatiner 
 ```bash
+docker ps -a
 docker exec -it <container_id> /bin/bash
 ```
+docker exec -it 8f1a99a79b3d /bin/bash
 
 ## execute application
 ```bash
@@ -193,5 +228,36 @@ https://docs.docker.com/compose/
 ```bash
 https://docs.docker.com/engine/reference/builder/#run
 ```
+```bash
+docker ps -a
+```
+```bash
+docker restart <container_id>  #8f1a99a79b3d
+```
+```bash
+docker exec -it <container_id> /bin/bash
+# docker exec -it 8f1a99a79b3d /bin/bash
+```
+```bash 
+source path/to/venv/bin/activate
+```
+```bash 
+python3 app.py
+```
+### Exit Docker Container without Stopping It
+- If you want to exit the container's interactive shell session, but do not want to interrupt the processes running in it, press Ctrl+P followed by Ctrl+Q. This operation detaches the container and allows you to return to your system's shell
 
+```bash
+docker commit <container_id>
+```
+docker commit 8f1a99a79b3d
 
+```bash
+docker image tag <image_id> <dockerhubid>/<name on dockerhub>:latest
+```
+docker image tag 8a5162116265 mayankchughjob/end-to-end-object-detection:latest
+
+```bash
+docker push <image id>
+```
+docker push mayankchughjob/end-to-end-object-detection:latest
