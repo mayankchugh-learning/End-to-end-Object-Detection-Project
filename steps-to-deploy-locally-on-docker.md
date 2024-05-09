@@ -261,3 +261,33 @@ docker image tag 8a5162116265 mayankchughjob/end-to-end-object-detection:latest
 docker push <image id>
 ```
 docker push mayankchughjob/end-to-end-object-detection:latest
+
+#### Commands to pull image from docker hub and run it locally
+
+```bash
+docker pull mayankchughjob/end-to-end-object-detection:latest
+```
+
+```bash
+docker run -dit -p 8080:8080 mayankchughjob/end-to-end-object-detection /bin/bash
+```
+
+## to list all containers 
+```bash
+docker ps -a
+```
+
+## to go into docker conatiner 
+```bash
+docker exec -it <container_id> /bin/bash
+```
+docker exec -it d4588968e429 /bin/bash
+```bash
+cd End-to-end-Object-Detection-Project/
+```
+```bash 
+source path/to/venv/bin/activate
+```
+```bash 
+python3 app.py
+```
