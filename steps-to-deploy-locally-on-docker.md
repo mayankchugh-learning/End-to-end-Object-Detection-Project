@@ -38,7 +38,7 @@ docker ps -a
 docker exec -it <container_id> /bin/bash
 ```
 
-docker exec -it 8f1a99a79b3d /bin/bash
+docker exec -it c54efff4244e /bin/bash
 
 ## update container
 ```bash
@@ -140,7 +140,7 @@ python3 -m venv path/to/venv
 source path/to/venv/bin/activate
 pip install -r requirements.txt
 ```
-## install all requirement
+## install all requirement - Note: you may need to comment line with notebook  
 ```bash
 pip install -r requirements.txt
 ```
@@ -155,11 +155,24 @@ aws --version
 docker ps -a
 docker exec -it <container_id> /bin/bash
 ```
-docker exec -it 8f1a99a79b3d /bin/bash
+docker exec -it c54efff4244e /bin/bash
 
 ## execute application
 ```bash
 python3 app.py
+```
+## Note: you may need to create folder structure inside yolo5 folder - runs/detect/exp and then copy 
+```bash
+cd yolov5
+mkdir runs
+cd runs
+mkdir detect
+cd detect
+mkdir exp
+cd exp
+# inside End-to-end-Object-Detection-Project
+cd data
+cp inputImage.jpg ../yolov5/runs/detect/exp/ 
 ```
 ## to list all containers 
 ```bash
@@ -250,7 +263,7 @@ python3 app.py
 ```bash
 docker commit <container_id>
 ```
-docker commit 8f1a99a79b3d
+docker commit c54efff4244e
 
 ```bash
 docker image tag <image_id> <dockerhubid>/<name on dockerhub>:latest
@@ -281,7 +294,7 @@ docker ps -a
 ```bash
 docker exec -it <container_id> /bin/bash
 ```
-docker exec -it d4588968e429 /bin/bash
+docker exec -it 582ca9056a26 /bin/bash
 ```bash
 cd End-to-end-Object-Detection-Project/
 ```
